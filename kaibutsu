@@ -1,10 +1,3 @@
-local gamelist = {
-    kaibu = 8487916239
-}
-
-
-
-if ( game.PlaceId == gamelist.kaibu ) then
     local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
     local UI = Material.Load({
         Title = "Demon Slayer: Kaibutsu | Nix Hub Premium",
@@ -20,14 +13,9 @@ if ( game.PlaceId == gamelist.kaibu ) then
        Title = "Functions"
    })
    local chr = UI.New({
-       Title = "Character"
+       Title = "Utilities"
    })
-   local tps = UI.New({
-       Title = "Teleports"
-   })
-   local Farms = UI.New({
-       Title = "Farm"
-   })
+  
    
     main.Button({
         Text = "Be Slayer",
@@ -108,13 +96,18 @@ if ( game.PlaceId == gamelist.kaibu ) then
    })
 
 
-   Farm.Toggle({
-       Title = "Auto-Farm Demon",
+   chr.Toggle({
+       Text = "AutoFarm Demons",
        Callback = function(active)
         getgenv().farm = active
         while wait() do
             if not getgenv().farm then break end
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Torso.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon").HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+            game:GetService("Players").LocalPlayer.Character.Character.Remotes.M1:FireServer()
+            if game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Humanoid.Health == 0 then wait(0.01) game:GetService("Workspace").LivingThings:FindFirstChild("Demon"):Destroy() break; end
+            wait()
+           
+
 
 
         end
@@ -124,29 +117,152 @@ if ( game.PlaceId == gamelist.kaibu ) then
 
    })
 
-   
-   main.Button({
-       Title = "ServerHop",
-       Callback = function()
-        local function ServerHop()
-            while wait() do
-                local Servers = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. game.PlaceId .. '/servers/Public?sortOrder=Asc&limit=100'))
-                for i,v in pairs(Servers.data) do
-                    if v.id ~= game.JobId then
-                        wait()
-                        game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
-                    end
-                end
-            end
-        end
-        
-        getgenv().serverhop = ServerHop
 
-        if syn then
-            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/LeadMarker/Scripts/main/DemonfallMoneyfarm.lua'))()")
-            end
-    end,
+   chr.Toggle({
+    Text = "AutoFarm Demons2(DemonLevel)",
+    Callback = function(active)
+     getgenv().farm = active
+     while wait() do
+         if not getgenv().farm then break end
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon2").HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+         game:GetService("Players").LocalPlayer.Character.Character.Remotes.M1:FireServer()
+         if game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Humanoid.Health == 0 then wait(0.01) game:GetService("Workspace").LivingThings:FindFirstChild("Demon2"):Destroy() break; end
+         wait()
+        
+
+
+
+     end
+     end,
+     Enabled = false
+     
+
+})
+
+
+chr.Toggle({
+    Text = "AutoFarm Demon3(Demon Level)",
+    Callback = function(active)
+     getgenv().farm = active
+     while wait() do
+         if not getgenv().farm then break end
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon3").HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+         game:GetService("Players").LocalPlayer.Character.Character.Remotes.M1:FireServer()
+         if game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Humanoid.Health == 0 then wait(0.01) game:GetService("Workspace").LivingThings:FindFirstChild("Demon3"):Destroy() break; end
+         wait()
+        
+
+
+
+     end
+     end,
+     Enabled = false
+     
+
+})
+
+
+
+chr.Toggle({
+    Text = "AutoFarm Demon4(Demon Level)",
+    Callback = function(active)
+     getgenv().farm = active
+     while wait() do
+         if not getgenv().farm then break end
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon4").HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+         game:GetService("Players").LocalPlayer.Character.Character.Remotes.M1:FireServer()
+         if game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Humanoid.Health == 0 then wait(0.01) game:GetService("Workspace").LivingThings:FindFirstChild("Demon4"):Destroy() break; end
+         wait()
+        
+
+
+
+     end
+     end,
+     Enabled = false
+     
+
+})
+
+chr.Toggle({
+    Text = "AutoFarm Demon5(Demon Level)",
+    Callback = function(active)
+     getgenv().farm = active
+     while wait() do
+         if not getgenv().farm then break end
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").LivingThings:FindFirstChild("Demon5").HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+         game:GetService("Players").LocalPlayer.Character.Character.Remotes.M1:FireServer()
+         if game:GetService("Workspace").LivingThings:FindFirstChild("Demon").Humanoid.Health == 0 then wait(0.01) game:GetService("Workspace").LivingThings:FindFirstChild("Demon5"):Destroy() break; end
+         wait()
+        
+
+
+
+     end
+     end,
+     Enabled = false
+     
+
+})
+
+   chr.Button({
+       Text = "M2",
+       Callback = function()
+        game:GetService("Players").LocalPlayer.Character.Character.Remotes.M2:FireServer()
+       end,
+   })
+   chr.Button({
+       Text = "Teleport to slayer corps",
+       Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").NPCS["Corp Recruiter"].HumanoidRootPart.CFrame
+       end,
    })
 
+   main.Button({
+    Text = "Rejoin",
+    Callback = function()
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
 
-end
+ 
+
+        ts:Teleport(game.PlaceId, p)
+
+        if syn then
+            syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/KeySystem-Nix/Scripts/main/kaibutsu'))()")
+        end
+    end,
+})
+
+    chr.Toggle({
+        Text = "Auto-Breath",
+        Callback = function(v)
+            getgenv().breath = v 
+            while wait() do
+                if not getgenv().breath then break end
+                
+
+                game:GetService("Players").LocalPlayer.Character.Character.Remotes.ChargeBreathing:FireServer()
+            end
+            if getgenv().breath == false then
+            game:GetService("Players").LocalPlayer.Character.Character.Remotes.Uncharge:FireServer()
+            end
+        end,
+        Enabled = false
+    })
+
+
+    chr.Dropdown({
+        Text = "Trainer Teleports",
+        Callback = function(v)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService('Workspace').NPCS[v].HumanoidRootPart.CFrame * CFrame.new(0, 2, 0)
+        end,
+        Options = {"KyojuroRengoku", "Urokodaki", "Mitsuri", "Corp Recruiter", "Gyomei", "ShinobuKocho", "Jigoro", "SanemiShinazugawa", "MuichiroTokito"},
+        Menu = {
+            Information = function(self)
+                UI.Banner({
+                    Text = "Teleports you to the selected trainer!"
+                })
+            end
+        }
+    })
