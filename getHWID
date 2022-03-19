@@ -5,3 +5,4 @@ local hwid = game:GetService('RbxAnalyticsService'):GetClientId()
 	
 setclipboard(hwid)
 
+game.Players.LocalPlayer:Kick("Do CTRL + V in the #premium-whitelisthwid")
